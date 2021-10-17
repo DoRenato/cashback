@@ -18,11 +18,12 @@ class Product(models.Model):
         return str(self.type)
 
 
-class Sale(models.Model):
-    sold_at = models.DateTimeField(auto_now=True)
+class Cashback(models.Model):
+    sold_at = models.DateTimeField()
     customer = models.ForeignKey('users.Customer', on_delete=models.CASCADE)
     total = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     products = models.ManyToManyField('Product', blank=True)
+    cashback = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
 
     def __str__(self):
         return str(self.customer) + " - " + str(self.sold_at)

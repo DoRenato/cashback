@@ -1,0 +1,1 @@
+Projetei o banco para a API ir buscar nos modelos o json na mesma forma do exemplo apresentado. Portanto, a App sales.Sale é responsável por retornar a venda por completo - produtos, tipo, total, cliente

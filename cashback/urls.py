@@ -20,7 +20,7 @@ from sales.api.viewsets import *
 
 
 router = routers.DefaultRouter()
-router.register(r'sale', SaleViewSet)
+router.register(r'cashback', CashbackViewSet)
 
 
 urlpatterns = [
