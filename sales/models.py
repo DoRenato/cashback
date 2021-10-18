@@ -4,6 +4,7 @@ from django.db.models import Sum, F, FloatField
 # Create your models here.
 class ProductType(models.Model):
     product_type = models.CharField(max_length=1)
+    cashback = models.DecimalField(max_digits=4, decimal_places=2)
 
     def __str__(self):
         return self.product_type

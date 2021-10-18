@@ -1,12 +1,11 @@
-import json
-from django.core import serializers
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+import requests
 
 from sales.models import *
 from users.models import Customer
 from .serializers import *
-from .valida_cpf import validate_cpf
+from .validations import validate_cpf, validate_type
 
 
 class CashbackViewSet(ModelViewSet):
@@ -30,28 +29,44 @@ class CashbackViewSet(ModelViewSet):
                 
         # =======
         
-        # Verifica se o formato da data é válido ====
+        # "Verifica" se o formato da data é válido. Como a data será salva em um modelo DateTimeField, se o formato não estiver de acordo, então não salva. ====
         try:
             cash = Cashback()
             cash.sold_at = data['sold_at']
             cash.customer = customer
             cash.save()
         except:
-            customer.delete()
+            cash.delete()
             return Response("data invalida")
         #=========
 
         t= 0
+        cashback_total = 0
         for product in data['products']:
-            pt = ProductType.objects.get(product_type = product['type'])
-            prod = Product()
-            prod.type = pt
-            prod.value = product['value']
-            prod.qty = product['qty']
-            prod.save()
-            cash.products.add(prod)
+            if validate_type(product['type']):
+                if float(product['value']) <= 0 or float(product['qty']) <= 0: # se for passado um valor ou quantidade menor igual a ZERO, ele a API irá ignorar esta compra e seguir para o proximo valor válido.
+                    continue
+                pt = ProductType.objects.get(product_type = product['type'])
+                prod = Product()
+                prod.type = pt
+                prod.value = product['value']
+                prod.qty = product['qty']
+                prod.save()
+                cash.products.add(prod)
+                cash.save()
+                t+=float(product['value']) * float(product['qty'])
+                cashback_total += (float(product['value']) * float(product['qty'])) * (float(pt.cashback)/100)
+
+        t='{:.2f}'.format(t) # apenas para adicionar uma casa decimal à direita, já que por padrão estão vindo com uma.
+
+        if float(t) != float(data['total']) or float(t) <= 0: # Se o total for ZERO ou diferente do somado na API, todos os dados serão descartados - com excessão do cliente.
+            for prod in cash.products.all():
+                prod.delete()
+            cash.delete()
+            return Response("Invalid Total.")
+        else:
+            cash.total= t
+            cash.cashback = cashback_total
             cash.save()
-            t+=float(product['value']) * float(product['qty'])
-        cash.total= t
-        cash.save()
-        return Response(data['customer']['document'])
+            return Response("Todos os dados são válidos.")
+        

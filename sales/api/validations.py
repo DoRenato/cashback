@@ -35,11 +35,24 @@ def validate_cpf(cpf):
             return False
     else:
         return False
-    
+
+
+def validate_type(type):
+    if len(type)>1:
+        return False
+    verify = re.match('^[A-C]', type)
+    if verify:
+        return True
+    else:
+        return False
+
 if __name__ == '__main__':
     # CPF's utilizados para teste, alguns gerados automaticamente por sites externos.
     # dado = validate_cpf('79529274942')
     # dado = validate_cpf('044.575.780-96')
     dado = validate_cpf('821.253.460-01')
     # dado = validate_cpf('111.111.111-11')
-    print(dado)
+
+    dado2 = validate_type('A')
+    if dado2:
+        print(dado2)
