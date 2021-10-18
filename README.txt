@@ -1,1 +1,3 @@
 Projetei o banco para a API ir buscar nos modelos o json na mesma forma do exemplo apresentado. Portanto, a App sales.Sale é responsável por retornar a venda por completo - produtos, tipo, total, cliente
+
+Não quis deixar o Tipo com valores fixos pois pensei que um tipo poderia variar de valor, ex: tipo A seria feijão, e existem marcas diferentes, com valores diferentes. Assim, só o cashback desse tipo que é fixo.
