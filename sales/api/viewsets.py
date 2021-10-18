@@ -37,14 +37,14 @@ class CashbackViewSet(ModelViewSet):
             cash.save()
         except:
             cash.delete()
-            return Response("data invalida")
+            return Response("Invalid Date")
         #=========
 
         t= 0
         cashback_total = 0
         for product in data['products']:
             if validate_type(product['type']):
-                if float(product['value']) <= 0 or float(product['qty']) <= 0: # se for passado um valor ou quantidade menor igual a ZERO, ele a API irá ignorar esta compra e seguir para o proximo valor válido.
+                if float(product['value']) <= 0 or float(product['qty']) <= 0: # se for passado um valor ou quantidade menor igual a ZERO, a API irá ignorar este produto e seguir para o proximo valor válido.
                     continue
                 pt = ProductType.objects.get(product_type = product['type'])
                 prod = Product()
@@ -68,5 +68,9 @@ class CashbackViewSet(ModelViewSet):
             cash.total= t
             cash.cashback = cashback_total
             cash.save()
-            return Response("Todos os dados são válidos.")
+
+            data={'document':customer.document, 'cashback': cash.cashback}
+
+            requests.post('https://5efb30ac80d8170016f7613d.mockapi.io/api/mock/Cashback', data)
+            return Response("Cashback generated.")
         
