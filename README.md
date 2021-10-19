@@ -1,5 +1,12 @@
 # Sobre a API:
 
+## Requisitos
+
+- É recomendável utilizar um ambiente virtual para instalar os requisitos, todos os necessários estão no arquivo requirements.txt
+- login e senha do usuario já cadastrado no banco: admin
+
+## Overview
+
 Utilizando o Django Rest Framework, tentei fazer o mais parecido possível com as sugestões propostas. Portanto, basta acessar o link "http://localhost:8000/api/cashback/", onde:  
 - Ao utilizar o método GET ela apresenta todos os cashback's que foram salvos com sucesso, da mesma forma do exemplo apresentado.  
 - Já o POST, também procurei deixar fiel ao exemplo, portanto basta enviar um json no modelo do fluxograma de exemplo que a API irá validar todos os dados.  
@@ -34,11 +41,17 @@ e esse valor também é armazenado em uma variavel de incremento 'cashback'. Ao 
 
 6- Sobre autenticação, no repositório já deixei o banco 'db.sqlite3' disponível para ter acesso direto, mas caso prefira iniciar um novo
 banco do zero, a forma de autenticação se dá no seguinte:
-- Acesse: http://localhost:8000/api-token-auth/ e envie através do método POST seu usuario e senha que estão cadastrados no banco. ex:  
+- Acesse: http://localhost:8000/api-token-auth/ e envie através do método POST seu usuario e senha que você cadastrou no novo banco, ex:  
 
 {
     "username":"seu_usuario",
     "password":"sua_senha"
 }  
 
-E a API irá retornar seu token de acesso, após isso(...).
+E a API irá retornar seu token de acesso. Após isso, utilizando o Postman (https://www.postman.com/home) basta adicionar na aba 'Headres' os seguintes valores:
+- na coluna 'key': Authorization.
+- na coluna 'value': Token 485c4e7e1eeed285e7f998f70d15258d1896edd4  
+
+Com o Header já adicionado, agora só precisa ir para a aba 'Body' que fica ao lado da aba 'Headers', onde nela irá enviar o JSON com os dados necessarios para validação na API. Estando em 'Body', basta clicar em 'raw' e selecionar o tipo 'JSON' (por padrão vai estar TEXT, esse tipo fica na mesma linha do 'raw', é a ultima opção seguindo para a direita, destacado na cor azul). Com esse procedimento feito, não deve ocorrer problema algum e a API irá retornar a seguinte mensagem: "Cashback generated."
+
+Acredito que consegui explicar o necessário, qualquer nova informação incremento aqui :D . 
