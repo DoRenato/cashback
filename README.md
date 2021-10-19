@@ -26,7 +26,7 @@ Utilizando o Django Rest Framework, tentei fazer o mais parecido possível com a
 4- Estando válido um produto, o calculo é feito de forma bem simples, onde será multiplicado o valor do produto pela quantidade adquirida, e esse valor vai sendo armazenado em uma variável 't' que vai sendo incrementada a cada nova soma de produto.  
 
 O cashback é gerado pelo mesmo calculo com a adição de uma multiplicação no final onde seria a quantidade multiplicada pelo valor do produto, e esse resultado é multiplicado pelo valor do cashback do tipo do produto divido por 100  
-- ((valor * quantidade) * (cashback/100))
+- ((valor * quantidade) * (cashback/100))  
 e esse valor também é armazenado em uma variavel de incremento 'cashback'. Ao final de todo o laço, 't' terá a soma total de todos os produtos e 'cashback' o Cashback gerado. Como na requisição é informado o valor total da compra, esse mesmo valor é comparado ao armazenado em 't'. Se ambos forem iguais, tudo fica salvo no banco e vamos para a etapa final, caso contrário, todo o processo é descartado e apagado do banco.
 
 5- Com todos as validações aprovadas, utilizando a biblioteca 'requests' (instalada através do pip), é feita a requisição para a API externa onde são enviados o documento do cliente e o cashback gerado. Pelos testes a API externa retornou exatamente igual ao do exemplo apresentado.
