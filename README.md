@@ -19,14 +19,9 @@ Etapas da validação:
 
 3- Com a data/hora válidas, a próxima etapa do processo é validar produtos. É feito um laço 'for' para percorrer todos os produtos que foram recebidos, onde irão passar pelas seguintes etapas: 
 
-    - TIPO: irá verificar se o tipo do produto condiz com os tipos que estão elegíveis para a promoção de cashback. Como padrão, criei um modelo no banco
-      onde ficam armazenados os tipos de produtos aceitos e o cashback que cada um gera (Achei melhor dividir o cashback por tipo do produto e depois somar
-      cada cashback do tipo pra gerar o valor total de cashback). Ao iniciar o laço, a API compara se o tipo do produto da vez está
-      cadastrado no banco. Caso não esteja, a API irá ignorar o mesmo e passar para o próximo da sequência. Portanto, se uma compra tiver 3 produtos mas
-      apenas um tipo for aceito, será salvo e gerado o cashback somente daquele produto aceito. Este procedimento também serve paraO mesmo processo
-      acontece para os casos de erros que serão apresentados posteiormente.
+- TIPO: irá verificar se o tipo do produto condiz com os tipos que estão elegíveis para a promoção de cashback. Como padrão, criei um modelo no banco onde ficam armazenados os tipos de produtos aceitos e o cashback que cada um gera (Achei melhor dividir o cashback por tipo do produto e depois somar cada cashback do tipo pra gerar o valor total de cashback). Ao iniciar o laço, a API compara se o tipo do produto da vez está cadastrado no banco. Caso não esteja, a API irá ignorar o mesmo e passar para o próximo da sequência. Portanto, se uma compra tiver 3 produtos mas apenas um tipo for aceito, será salvo e gerado o cashback somente daquele produto aceito. Este procedimento também serve paraO mesmo processo acontece para os casos de erros que serão apresentados posteiormente.  
 
-  - VALOR e QUANTIDADE: Após a verificação do tipo, a API irá verificar se a quantidade e os valoresquantidade são válidos. Essa validação é feita
+- VALOR e QUANTIDADE: Após a verificação do tipo, a API irá verificar se a quantidade e os valoresquantidade são válidos. Essa validação é feita
     Comparando se o valor do produto é menor ou igual a 00,00 ou então se a quantidade é menor ou igual a zero. Se algum desses casos for verdade,
     a API irá ignorar o produto da vez e passar para o proximo da sequência.
       
