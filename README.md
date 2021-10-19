@@ -1,8 +1,8 @@
 Sobre a API:
 
-Utilizando o Django Rest Framework, tentei fazer o mais parecido possível com as sugestões propostas. Portanto, basta acessar o link "http://localhost:8000/api/cashback/", onde: </br>
+Utilizando o Django Rest Framework, tentei fazer o mais parecido possível com as sugestões propostas. Portanto, basta acessar o link "http://localhost:8000/api/cashback/", onde: <br>
     
-    - Ao utilizar o método GET ela apresenta todos os cashback's que foram salvos com sucesso, da mesma forma do exemplo apresentado. </br>
+    <li> Ao utilizar o método GET ela apresenta todos os cashback's que foram salvos com sucesso, da mesma forma do exemplo apresentado. </li>
     - Já o POST, também procurei deixar fiel ao exemplo, portanto basta enviar um json no modelo do fluxograma de exemplo que a API irá validar todos os dados.
     
       OBS: O fluxograma do exemplo estava dando erro pois continha virgulas sem conteúdos posteriores, ex:
