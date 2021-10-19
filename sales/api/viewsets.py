@@ -1,5 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 import requests
 
 from sales.models import *
@@ -11,6 +13,8 @@ from .validations import validate_cpf, validate_type
 class CashbackViewSet(ModelViewSet):
     queryset = Cashback.objects.all()
     serializer_class = CashbackSerializer
+    permission_classes = [IsAuthenticated, ] # Define qual o tipo permissão será aceita, neste caso, será permitido acessar essa ViewSet se o usuario estiver autenticado.
+    authentication_classes = [TokenAuthentication, ] # Define qual o tipo de autenticação é utilizada, neste caso utilizei autenticação por Token.
 
     def create(self, request, *args, **kwargs):
         data= request.data # Armazenda o JSON recebido na requisição POST neste dicionario python.
