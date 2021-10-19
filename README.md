@@ -4,8 +4,8 @@ Utilizando o Django Rest Framework, tentei fazer o mais parecido possível com a
 
     * Ao utilizar o método GET ela apresenta todos os cashback's que foram salvos com sucesso, da mesma forma do exemplo apresentado.  
     * Já o POST, também procurei deixar fiel ao exemplo, portanto basta enviar um json no modelo do fluxograma de exemplo que a API irá validar todos os dados.  
-
-      OBS: O fluxograma do exemplo estava dando erro pois continha virgulas sem conteúdos posteriores, ex:
+    
+    OBS: O fluxograma do exemplo estava dando erro pois continha virgulas sem conteúdos posteriores, ex:
 
         "customer": {
             "document": "00000000000",    |Essa virgula seguida de um fechamento da chave causa um erro de interpretação do JSON (pelo menos utilizando o django rest),
