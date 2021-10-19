@@ -12,8 +12,8 @@ Utilizando o Django Rest Framework, tentei fazer o mais parecido possível com a
 
 Etapas da validação:
 
-1- Ao receber a requisição, a API verifica primeiro se o cliente já está cadastrado no sistema, senão, verifica se CPF do usuário é válido, se for, o cliente é cadastrado no sitema através da app 'users' onde contem em 'models.py' o modelo para salvar novos clientes.
-    * A validação do CPF se dá através do arquivo 'validations.py' localizado em '/sales/api/validations.py', onde o mesmo contem todos os passos necessários para a validação do mesmo.
+1- Ao receber a requisição, a API verifica primeiro se o cliente já está cadastrado no sistema, senão, verifica se CPF do usuário é válido, se for, o cliente é cadastrado no sitema através da app 'users' onde contem em 'models.py' o modelo para salvar novos clientes.  
+- A validação do CPF se dá através do arquivo 'validations.py' localizado em '/sales/api/validations.py', onde o mesmo contem todos os passos necessários para a validação do mesmo.
 
 2- Logo em seguida, após o cliente salvo, irá verificar se o formato da data/hora estão corretas. Como a data será salva em um modelo DateTimeField, se o formato não estiver de acordo, então não salva. Caso esteja tudo certo com a data/hora, a API irá registrar um novo modelo no banco entitulado 'Cashback' onde o mesmo armazena todos os dados necessários que foram recebidos através da requisição, incluindo um campo adicional onde fica salvo o valor total do cashback.
 
