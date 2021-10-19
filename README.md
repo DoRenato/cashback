@@ -10,7 +10,7 @@ Utilizando o Django Rest Framework, tentei fazer o mais parecido possível com a
             "name": "JOSE DA SILVA",  <-- |mas bastou removê-las que funcionou normalmente, são 4 no total que estão dessa forma.
          },
 
-Etapas da validação:
+## Etapas da validação:
 
 1- Ao receber a requisição, a API verifica primeiro se o cliente já está cadastrado no sistema, senão, verifica se CPF do usuário é válido, se for, o cliente é cadastrado no sitema através da app 'users' onde contem em 'models.py' o modelo para salvar novos clientes.  
 - A validação do CPF se dá através do arquivo 'validations.py' localizado em '/sales/api/validations.py', onde o mesmo contem todos os passos necessários para a validação do mesmo.
@@ -23,6 +23,10 @@ Etapas da validação:
 
 - VALOR e QUANTIDADE: Após a verificação do tipo, a API irá verificar se a quantidade e os valoresquantidade são válidos. Essa validação é feita Comparando se o valor do produto é menor ou igual a 00,00 ou então se a quantidade é menor ou igual a zero. Se algum desses casos for verdade, a API irá ignorar o produto da vez e passar para o proximo da sequência.
       
-4- Estando válido um produto, o calculo é feito de forma bem simples, onde será multiplicado o valor do produto pela quantidade adquirida, e esse valor vai sendo armazenado em uma variável 't' que vai sendo incrementada a cada nova soma de produto. O cashback é gerado pelo mesmo calculo com a adição de uma multiplicação no final onde seria a quantidade multiplicada pelo valor do produto, e esse resultado é multiplicado pelo valor do cashback do tipo do produto divido por 100 - ((valor * quantidade) * (cashback/100)) - e esse valor também é armazenado em uma variavel de incremento 'cashback'. Ao final de todo o laço, 't' terá a soma total de todos os produtos e 'cashback' o Cashback gerado. Como na requisição é informado o valor total da compra, esse mesmo valor é comparado ao armazenado em 't'. Se ambos forem iguais, tudo fica salvo no banco e vamos para a etapa final, caso contrário, todo o processo é descartado e apagado do banco.
+4- Estando válido um produto, o calculo é feito de forma bem simples, onde será multiplicado o valor do produto pela quantidade adquirida, e esse valor vai sendo armazenado em uma variável 't' que vai sendo incrementada a cada nova soma de produto.  
+
+O cashback é gerado pelo mesmo calculo com a adição de uma multiplicação no final onde seria a quantidade multiplicada pelo valor do produto, e esse resultado é multiplicado pelo valor do cashback do tipo do produto divido por 100  
+- ((valor * quantidade) * (cashback/100))
+e esse valor também é armazenado em uma variavel de incremento 'cashback'. Ao final de todo o laço, 't' terá a soma total de todos os produtos e 'cashback' o Cashback gerado. Como na requisição é informado o valor total da compra, esse mesmo valor é comparado ao armazenado em 't'. Se ambos forem iguais, tudo fica salvo no banco e vamos para a etapa final, caso contrário, todo o processo é descartado e apagado do banco.
 
 5- Com todos as validações aprovadas, utilizando a biblioteca 'requests' (instalada através do pip), é feita a requisição para a API externa onde são enviados o documento do cliente e o cashback gerado. Pelos testes a API externa retornou exatamente igual ao do exemplo apresentado.
