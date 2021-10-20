@@ -43,6 +43,9 @@ e esse valor também é armazenado em uma variavel de incremento 'cashback'. Ao 
 6- Sobre autenticação, no repositório já deixei o banco 'db.sqlite3' disponível para ter acesso direto, mas caso prefira iniciar um novo
 banco do zero, a forma de autenticação se dá no seguinte:
 - Cadastre um novo usuario no sistema: http://localhost:8000/users/register
+- Crie um super usuário para cadastrar os tipos no banco, para validar o cashback:
+  * Na pasta raiz do projeto, exeute o 'manage.py' pelo terminal da seguinte forma: python manage.py createsuperuser  
+    coloque os dados e então vá para página de Administração do django (http://localhost:8000/admin/) e faça login com o super usuário. Estando logado, cadastre os tipos em 'Product Types' - A API so irá validar se os tipos forem um dos três (A, B e C), então cadastre apenas esses com os respectivos cashback's da cada um.
 - Após isso, acesse http://localhost:8000/api-token-auth/ e envie através do método POST seu usuario e senha que você cadastrou, no seguinte formato:  
 
 {
