@@ -38,7 +38,7 @@ O cashback é gerado pelo mesmo calculo com a adição de uma multiplicação no
 
 e esse valor também é armazenado em uma variavel de incremento 'cashback'. Ao final de todo o laço, 't' terá a soma total de todos os produtos e 'cashback' o Cashback gerado. Como na requisição é informado o valor total da compra, esse mesmo valor é comparado ao armazenado em 't'. Se ambos forem iguais, tudo fica salvo no banco e vamos para a etapa final, caso contrário, todo o processo é descartado e apagado do banco.
 
-5- Com todos as validações aprovadas, utilizando a biblioteca 'requests' (instalada através do pip), é feita a requisição para a API externa onde são enviados o documento do cliente e o cashback gerado. Pelos testes a API externa retornou exatamente igual ao do exemplo apresentado.
+5- Com todos as validações aprovadas, utilizando a biblioteca 'requests' (instalada através do pip, serve para fazer requisições à API's, por exemplo.), é feita a requisição para a API externa onde são enviados o documento do cliente e o cashback gerado. Pelos testes a API externa retornou exatamente igual ao do exemplo apresentado.
 
 6- Sobre autenticação, no repositório já deixei o banco 'db.sqlite3' disponível para ter acesso direto, mas caso prefira iniciar um novo
 banco do zero, a forma de autenticação se dá no seguinte:
