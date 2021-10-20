@@ -1,14 +1,14 @@
 # Sobre a API:
 
-## Requisitos
+## Requisitos e Execução
 
 - É recomendável utilizar um ambiente virtual para instalar os requisitos, todos os necessários estão no arquivo requirements.txt
-- Na pasta raiz do projeto, execute o comando *python manage.py migrate* 
-- Crie um super usuário para cadastrar os tipos no banco, para validar o cashback:
-  * Na pasta raiz do projeto, exeute o 'manage.py' pelo terminal da seguinte forma: python manage.py createsuperuser  
-    coloque os dados e então vá para página de Administração do django (http://localhost:8000/admin/) e faça login com o super usuário. Estando logado, cadastre os tipos em 'Product Types' - A API so irá validar se os tipos forem um dos três (A, B e C), então cadastre apenas esses com os respectivos cashback's da cada um.
-- login e senha do usuario já cadastrado no banco: username= api_user, password= #api2021
-- login e senha do usuario admin: admin (para ambos os campos)
+- Na pasta raiz do projeto, execute o comando **python manage.py migrate** para criar o banco.
+- Crie um super usuário para cadastrar os tipos de produtos no banco para validar o Cashback:
+  * Na pasta raiz do projeto, execute o *manage.py* pelo terminal da seguinte forma: **python manage.py createsuperuser**  
+    coloque os dados e então vá para página de Administração do Django (http://localhost:8000/admin/) e faça login com o super usuário.  
+  * Estando logado, cadastre os tipos em 'Product Types' - A API so irá validar se os tipos forem um dos três (A, B ou C), então, embora que cadastre mais tipos, ela só irá validar estes.
+- Feito isso, a API já está pronta para funcionar. 
 
 ## Overview
 
