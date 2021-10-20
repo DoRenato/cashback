@@ -6,7 +6,8 @@
 - Na pasta raiz do projeto, execute o comando **python manage.py migrate** para criar o banco.
 - Crie um super usuário para cadastrar os tipos de produtos no banco para validar o Cashback:
   * Na pasta raiz do projeto, execute o *manage.py* pelo terminal da seguinte forma: **python manage.py createsuperuser**  
-    coloque os dados e então vá para página de Administração do Django (http://localhost:8000/admin/) e faça login com o super usuário.  
+    e preencha os campos, 
+  * rode o servidor local **python manage.py runserver** e então vá para página de Administração do Django (http://localhost:8000/admin/) e faça login com o super usuário.  
   * Estando logado, cadastre os tipos em 'Product Types' - A API so irá validar se os tipos forem um dos três (A, B ou C), então, embora que cadastre mais tipos, ela só irá validar estes.
 - Feito isso, a API já está pronta para funcionar. 
 
@@ -46,17 +47,17 @@ e esse valor também é armazenado em uma variavel de incremento 'cashback'. Ao 
 
 6- Sobre autenticação:
 - Cadastre um novo usuario no sistema: http://localhost:8000/users/register
-- Após isso, acesse http://localhost:8000/api-token-auth/ e envie através do método POST seu usuario e senha que você cadastrou, no seguinte formato:  
+- Após isso, acesse http://localhost:8000/api-token-auth/ utilizando o *Postman* (https://www.postman.com/home) ou o *curl* e envie através do método POST seu usuario e senha que você cadastrou, no seguinte formato:  
 
 {
     "username":"seu_usuario",
     "password":"sua_senha"
 }  
 
-A API irá retornar seu token de acesso. Após isso, utilizando o Postman (https://www.postman.com/home) basta adicionar na aba 'Headres' os seguintes valores:
+A API irá retornar seu token de acesso. Após isso, utilizando o *Postman* basta adicionar na aba 'Headres' os seguintes valores:
 - na coluna 'key': Authorization.
 - na coluna 'value': Token 123 (substitua '123' pelo token de acesso gerado) 
 
 Com o Header já adicionado, agora só precisa ir para a aba 'Body' que fica ao lado da aba 'Headers', onde nela irá enviar o JSON com os dados necessarios para validação na API (os do exemplo do fluxograma 1). Estando em 'Body', basta clicar em 'raw' e selecionar o tipo 'JSON' (por padrão vai estar TEXT, esse tipo fica na mesma linha do 'raw', é a ultima opção seguindo para a direita, destacado na cor azul). Com esse procedimento feito, não deve ocorrer problema algum e a API irá retornar a seguinte mensagem: "Cashback generated."
 
-Acredito que consegui explicar o necessário, qualquer nova informação incremento aqui :D
+Acredito que consegui explicar o necessário, o código também possui alguns comentários para melhor entendimento. Qualquer nova informação acrescento aqui :D
