@@ -44,8 +44,7 @@ e esse valor também é armazenado em uma variavel de incremento 'cashback'. Ao 
 
 5- Com todos as validações aprovadas, utilizando a biblioteca 'requests' (instalada através do pip, serve para fazer requisições à API's, por exemplo.), é feita a requisição para a API externa onde são enviados o documento do cliente e o cashback gerado. Pelos testes a API externa retornou exatamente igual ao do exemplo apresentado.
 
-6- Sobre autenticação, no repositório já deixei o banco 'db.sqlite3' disponível para ter acesso direto, mas caso prefira iniciar um novo
-banco do zero, a forma de autenticação se dá no seguinte:
+6- Sobre autenticação:
 - Cadastre um novo usuario no sistema: http://localhost:8000/users/register
 - Após isso, acesse http://localhost:8000/api-token-auth/ e envie através do método POST seu usuario e senha que você cadastrou, no seguinte formato:  
 
