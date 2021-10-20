@@ -3,7 +3,8 @@
 ## Requisitos
 
 - É recomendável utilizar um ambiente virtual para instalar os requisitos, todos os necessários estão no arquivo requirements.txt
-- login e senha do usuario já cadastrado no banco: admin
+- login e senha do usuario já cadastrado no banco: username= api_user, password= #api2021
+- login e senha do usuario admin: admin (para ambos os campos)
 
 ## Overview
 
@@ -41,17 +42,18 @@ e esse valor também é armazenado em uma variavel de incremento 'cashback'. Ao 
 
 6- Sobre autenticação, no repositório já deixei o banco 'db.sqlite3' disponível para ter acesso direto, mas caso prefira iniciar um novo
 banco do zero, a forma de autenticação se dá no seguinte:
-- Acesse: http://localhost:8000/api-token-auth/ e envie através do método POST seu usuario e senha que você cadastrou no novo banco, ex:  
+- Cadastre um novo usuario no sistema: http://localhost:8000/users/register
+- Após isso, acesse http://localhost:8000/api-token-auth/ e envie através do método POST seu usuario e senha que você cadastrou, no seguinte formato:  
 
 {
     "username":"seu_usuario",
     "password":"sua_senha"
 }  
 
-E a API irá retornar seu token de acesso. Após isso, utilizando o Postman (https://www.postman.com/home) basta adicionar na aba 'Headres' os seguintes valores:
+A API irá retornar seu token de acesso. Após isso, utilizando o Postman (https://www.postman.com/home) basta adicionar na aba 'Headres' os seguintes valores:
 - na coluna 'key': Authorization.
-- na coluna 'value': Token 485c4e7e1eeed285e7f998f70d15258d1896edd4  
+- na coluna 'value': Token seu_token_de_acesso 
 
-Com o Header já adicionado, agora só precisa ir para a aba 'Body' que fica ao lado da aba 'Headers', onde nela irá enviar o JSON com os dados necessarios para validação na API. Estando em 'Body', basta clicar em 'raw' e selecionar o tipo 'JSON' (por padrão vai estar TEXT, esse tipo fica na mesma linha do 'raw', é a ultima opção seguindo para a direita, destacado na cor azul). Com esse procedimento feito, não deve ocorrer problema algum e a API irá retornar a seguinte mensagem: "Cashback generated."
+Com o Header já adicionado, agora só precisa ir para a aba 'Body' que fica ao lado da aba 'Headers', onde nela irá enviar o JSON com os dados necessarios para validação na API (os do exemplo do fluxograma 1). Estando em 'Body', basta clicar em 'raw' e selecionar o tipo 'JSON' (por padrão vai estar TEXT, esse tipo fica na mesma linha do 'raw', é a ultima opção seguindo para a direita, destacado na cor azul). Com esse procedimento feito, não deve ocorrer problema algum e a API irá retornar a seguinte mensagem: "Cashback generated."
 
 Acredito que consegui explicar o necessário, qualquer nova informação incremento aqui :D . 
