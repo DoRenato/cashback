@@ -60,4 +60,4 @@ A API irá retornar seu token de acesso. Após isso, utilizando o *Postman* bast
 
 Com o Header já adicionado, agora só precisa ir para a aba 'Body' que fica ao lado da aba 'Headers', onde nela irá enviar o JSON com os dados necessarios para validação na API (os do exemplo do fluxograma 1). Estando em 'Body', basta clicar em 'raw' e selecionar o tipo 'JSON' (por padrão vai estar TEXT, esse tipo fica na mesma linha do 'raw', é a ultima opção seguindo para a direita, destacado na cor azul). Com esse procedimento feito, não deve ocorrer problema algum e a API irá retornar a seguinte mensagem: "Cashback generated."
 
-Acredito que consegui explicar o necessário, o código também possui alguns comentários para melhor entendimento. Qualquer nova informação acrescento aqui :D
+Acredito que consegui explicar o necessário, o código também possui alguns comentários para melhor entendimento. Qualquer nova informação acrescento aqui :D 
