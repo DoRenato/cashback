@@ -28,17 +28,3 @@ class Cashback(models.Model):
 
     def __str__(self):
         return str(self.customer) + " - " + str(self.sold_at)
-
-    # def get_total(self):
-    #     t = self.products.all().aggregate(
-    #         tot_ped = Sum(F('ProductQty_qty') * 2)
-    #     )
-
-    #     self.total= t['tot_ped']
-    #     self.save()
-    #     return t['tot_ped']
-    
-    # def total_price(self):
-    #     queryset = self.luggage_items.all().aggregate(
-    #         total_price=models.Sum('item_price'))
-    #     return queryset["total_price"]

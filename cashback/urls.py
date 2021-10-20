@@ -28,6 +28,7 @@ router.register(r'cashback', CashbackViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sales/', include('sales.urls')),
+    path('users/', include('users.urls')),
 
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api-token-auth/', obtain_auth_token),
